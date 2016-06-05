@@ -5,10 +5,12 @@ public class SeatManager {
     private static Seat freeSeats;
     private static Seat occupiedSeats;
 
-    public static final int MAXTIME = 2000;
-    public static final int MAXSEAT = 2;
+    public static long MAXTIME;
+    public static int MAXSEAT;
 
-    public SeatManager () {
+    public SeatManager (long time, int seat) {
+        this.MAXTIME = time;
+        this.MAXSEAT = seat;
         this.freeSeats = new Seat();
         this.occupiedSeats = new Seat();
         for (int i=1; i<=MAXSEAT; i++) {
@@ -82,7 +84,8 @@ public class SeatManager {
     }
 
     public static void main(String args[]) {
-        SeatManager manager = new SeatManager();
+        // Ngoi toi da 2s, co 2 cho ngoi
+        SeatManager manager = new SeatManager(2000, 2);
         manager.checkin("1"); // SUCCESS
 
         manager.checkout("1"); // SUCCESS
